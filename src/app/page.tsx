@@ -10,7 +10,7 @@ import TechnologyTeaser from "@/components/sections/TechnologyTeaser";
 import ServicesHorizontal from "@/components/sections/ServicesHorizontal";
 import WhyFrictionCharge from "@/components/sections/WhyFrictionCharge";
 import AppSection from "@/components/sections/AppSection";
-import PartnerLogosPlaceholder from "@/components/sections/PartnerLogosPlaceholder";
+import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
 import MediaTeaser from "@/components/sections/MediaTeaser";
 import MissionVision from "@/components/sections/MissionVision";
@@ -33,7 +33,7 @@ export default function HomePage() {
       <ServicesHorizontal />
       <WhyFrictionCharge />
       <AppSection />
-      <PartnerLogosPlaceholder />
+      <Gallery />
       <Testimonials />
       <MediaTeaser />
       <MissionVision />

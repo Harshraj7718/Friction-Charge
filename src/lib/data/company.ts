@@ -181,12 +181,28 @@ export type RoadmapPhase = {
   phase: string;
   title: string;
   description: string;
+  image: string;
 };
 
 export const roadmapPhases: RoadmapPhase[] = [
-  { phase: "PHASE 01", title: "Delhi NCR", description: "Initial network build-out across Delhi NCR." },
-  { phase: "PHASE 02", title: "North India Highway Corridors", description: "Extending fast-charging coverage along major North Indian highway corridors." },
-  { phase: "PHASE 03", title: "Pan-India", description: "Long-term expansion toward a pan-India charging network." },
+  {
+    phase: "PHASE 01",
+    title: "Delhi NCR",
+    description: "Initial network build-out across Delhi NCR.",
+    image: "/images/dc-fast-charging.png",
+  },
+  {
+    phase: "PHASE 02",
+    title: "North India Highway Corridors",
+    description: "Extending fast-charging coverage along major North Indian highway corridors.",
+    image: "/images/highway-infrastructure.png",
+  },
+  {
+    phase: "PHASE 03",
+    title: "Pan-India",
+    description: "Long-term expansion toward a pan-India charging network.",
+    image: "/images/pan-india-expansion.png",
+  },
 ];
 
 export type TechnologyFeature = {

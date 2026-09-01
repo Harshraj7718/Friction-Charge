@@ -25,6 +25,7 @@ export default function MediaPage() {
         eyebrow="Media Center"
         title="News, guides and stories."
         description="Updates on India's EV charging landscape, guidance on the partner plans, and how a Friction Charge station runs."
+        visual={{ src: "/images/future.png", alt: "A Friction Charge station at dusk" }}
       />
 
       <section className="relative py-12 sm:py-16">

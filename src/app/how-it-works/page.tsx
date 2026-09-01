@@ -30,6 +30,7 @@ export default function HowItWorksPage() {
         eyebrow="How it works"
         title="One agreement. Zero day-to-day operations."
         description="Friction Charge procures, installs, operates and maintains your charger — you receive a fixed monthly payout under a written partner agreement."
+        visual={{ src: "/images/evcontact.png", alt: "An EV charging at a Friction Charge station" }}
       />
 
       <section className="relative py-24 sm:py-32">

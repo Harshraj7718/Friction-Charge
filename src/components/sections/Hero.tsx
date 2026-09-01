@@ -55,6 +55,13 @@ export default function Hero() {
           className="absolute right-[-10%] top-1/4 h-[500px] w-[500px] rounded-full opacity-25 blur-[120px]"
           style={{ background: "radial-gradient(circle, #45f58c, transparent 70%)" }}
         />
+        <Image
+          src="/images/logo-icon.png"
+          alt=""
+          width={908}
+          height={589}
+          className="absolute left-1/2 top-1/2 w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.10] sm:w-[80%]"
+        />
       </div>
 
       <Container className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -70,7 +77,11 @@ export default function Hero() {
           >
             Powering India&apos;s{" "}
             <DynamicFill>
-              <TextPressure text="Electric Future." gradient="linear-gradient(120deg, #b4e863, #2ebd59)" />
+              <TextPressure
+                text="Electric Future."
+                gradient="linear-gradient(120deg, #b4e863, #2ebd59)"
+                className="whitespace-nowrap text-4xl sm:text-6xl lg:text-[4.5rem]"
+              />
             </DynamicFill>
           </h1>
 

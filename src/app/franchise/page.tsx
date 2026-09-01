@@ -34,6 +34,7 @@ export default function FranchisePage() {
         eyebrow="Partner with Friction Charge"
         title="Own the charger. Let us run the business."
         description="Choose a plan, sign a written agreement, and Friction Charge handles procurement, installation, operations and maintenance."
+        visual={{ src: "/images/ev-charger.png", alt: "Friction Charge DC fast chargers — 60 kW and 120 kW models" }}
       />
 
       <RevealSection className="py-24 sm:py-32">
