@@ -79,20 +79,47 @@ export function setupFrameSequence({ runway, canvas, frameUrls, onProgress }: Fr
   const lastIndex = frameUrls.length - 1;
   const reduced = prefersReducedMotion();
 
-  frameUrls.forEach((url, i) => {
+  const loadFrame = (i: number, onLoaded?: () => void) => {
     const img = new window.Image();
-    img.src = url;
     images[i] = img;
-    img.onload = () => {
-      if (reduced ? i === lastIndex : i === 0) drawFrame(i);
-    };
-  });
+    img.onload = () => onLoaded?.();
+    img.src = frameUrls[i];
+  };
 
-  // Reduced-motion users get the final "connected and charging" frame as a
-  // static image instead of a scroll-scrubbed sequence.
+  // Reduced-motion users only ever see the final "connected and charging"
+  // frame as a static image — no need to fetch the other 59.
   if (reduced) {
+    loadFrame(lastIndex, () => drawFrame(lastIndex));
     return () => window.removeEventListener("resize", onResize);
   }
+
+  // The first frame loads immediately so there's something to draw the
+  // instant the runway is reached. The rest load lazily, kicked off only
+  // once the runway is actually approaching the viewport — loading all 60
+  // frames up front (as this used to) fired 60 requests at page load
+  // regardless of whether the user ever scrolls anywhere near this
+  // section, which noticeably slowed initial page load.
+  loadFrame(0, () => drawFrame(0));
+
+  let remainingFramesRequested = false;
+  const loadRemainingFrames = () => {
+    if (remainingFramesRequested) return;
+    remainingFramesRequested = true;
+    frameUrls.forEach((_, i) => {
+      if (i !== 0) loadFrame(i);
+    });
+  };
+
+  const runwayObserver = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        loadRemainingFrames();
+        runwayObserver.disconnect();
+      }
+    },
+    { rootMargin: "100% 0px" }
+  );
+  runwayObserver.observe(runway);
 
   const trigger = ScrollTrigger.create({
     trigger: runway,
@@ -107,6 +134,7 @@ export function setupFrameSequence({ runway, canvas, frameUrls, onProgress }: Fr
 
   return () => {
     window.removeEventListener("resize", onResize);
+    runwayObserver.disconnect();
     trigger.kill();
   };
 }

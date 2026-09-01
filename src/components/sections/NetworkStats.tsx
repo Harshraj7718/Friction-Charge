@@ -29,6 +29,7 @@ export default function NetworkStats() {
           alt=""
           width={900}
           height={900}
+          sizes="(min-width: 640px) 70vw, 140vw"
           className="w-[140%] max-w-none opacity-[0.06] sm:w-[70%]"
         />
       </div>

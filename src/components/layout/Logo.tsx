@@ -20,6 +20,7 @@ export default function Logo({ variant = "icon", className, imgClassName, priori
         width={isIcon ? 908 : 1672}
         height={isIcon ? 589 : 940}
         priority={priority}
+        sizes={isIcon ? "40px" : "180px"}
         className={cn(isIcon ? "h-9 w-auto" : "h-24 w-auto", imgClassName)}
       />
     </Link>

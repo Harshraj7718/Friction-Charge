@@ -60,6 +60,7 @@ export default function Hero() {
           alt=""
           width={908}
           height={589}
+          sizes="(min-width: 640px) 80vw, 140vw"
           className="absolute left-1/2 top-1/2 w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.10] sm:w-[80%]"
         />
       </div>

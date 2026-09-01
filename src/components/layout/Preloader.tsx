@@ -34,7 +34,7 @@ export default function Preloader() {
 
     let raf: number;
     const start = performance.now();
-    const durationMs = 1100;
+    const durationMs = 450;
 
     const tick = (now: number) => {
       const elapsed = now - start;
@@ -45,7 +45,7 @@ export default function Preloader() {
       } else {
         sessionStorage.setItem("fc-preloaded", "1");
         setDone(true);
-        setTimeout(() => setHidden(true), 500);
+        setTimeout(() => setHidden(true), 200);
       }
     };
     raf = requestAnimationFrame(tick);
@@ -58,13 +58,13 @@ export default function Preloader() {
     <div
       aria-hidden={done}
       className={cn(
-        "fixed inset-0 z-[100] flex flex-col items-center justify-center bg-bg transition-opacity duration-500",
+        "fixed inset-0 z-[100] flex flex-col items-center justify-center bg-bg transition-opacity duration-200",
         done ? "pointer-events-none opacity-0" : "opacity-100"
       )}
     >
       <div className="grid-pattern absolute inset-0 opacity-30" />
       <div className="relative z-10 flex flex-col items-center gap-6">
-        <Image src="/images/logo-icon.png" alt="" width={908} height={589} priority className="h-14 w-auto animate-pulse" />
+        <Image src="/images/logo-icon.png" alt="" width={908} height={589} priority sizes="90px" className="h-14 w-auto animate-pulse" />
         <p className="font-mono-tech text-xs tracking-[0.35em] text-muted">CHARGING THE FUTURE</p>
         <div className="relative h-px w-56 overflow-hidden bg-card-border">
           <div
