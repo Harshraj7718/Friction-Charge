@@ -63,6 +63,8 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -78,12 +80,33 @@ export default function ContactForm() {
     return Object.keys(next).length === 0;
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!validate()) return;
 
-    trackEvent("contact_submit", { plan: form.plan, city: form.city || undefined });
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/enquiries`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.status === 400) {
+        const data = await res.json();
+        setErrors(data.errors ?? {});
+        return;
+      }
+      if (!res.ok) throw new Error("request_failed");
+
+      trackEvent("contact_submit", { plan: form.plan, city: form.city || undefined });
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -234,11 +257,19 @@ export default function ContactForm() {
           </div>
         </div>
 
+        {submitError && (
+          <p className="flex items-center justify-center gap-1.5 text-center text-sm text-red-500">
+            <AlertCircle size={14} />
+            {submitError}
+          </p>
+        )}
+
         <button
           type="submit"
-          className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-lime to-emerald px-6 py-3.5 text-sm font-medium text-[#050a0f] transition-shadow hover:shadow-[0_0_36px_rgba(69,245,140,0.45)]"
+          disabled={submitting}
+          className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-lime to-emerald px-6 py-3.5 text-sm font-medium text-[#050a0f] transition-shadow hover:shadow-[0_0_36px_rgba(69,245,140,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Submit Enquiry
+          {submitting ? "Sending…" : "Submit Enquiry"}
           <ArrowRight size={16} />
         </button>
 
