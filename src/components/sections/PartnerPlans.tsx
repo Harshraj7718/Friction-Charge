@@ -7,7 +7,6 @@ import { partnerPlans, planInclusions } from "@/lib/data/company";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTAButton from "@/components/ui/CTAButton";
-import ChargeFrameSequence from "@/components/sections/ChargeFrameSequence";
 import PricingCard from "@/components/cards/PricingCard";
 
 export default function PartnerPlans() {
@@ -26,10 +25,6 @@ export default function PartnerPlans() {
           </CTAButton>
         </div>
       </Container>
-
-      <div className="mt-6">
-        <ChargeFrameSequence />
-      </div>
 
       <Container>
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
