@@ -65,6 +65,10 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  // Honeypot — real users never see or fill this field; bots that
+  // auto-fill every input on a page do. Never rendered visibly, so it
+  // doesn't touch the form's design.
+  const [honeypot, setHoneypot] = useState("");
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -82,12 +86,14 @@ export default function ContactForm() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (honeypot) return; // Bot filled the hidden field — drop silently, no insert, no error shown.
     if (!validate()) return;
+    if (submitting) return; // Belt-and-braces against a double-click racing past the disabled button.
 
     setSubmitting(true);
     setSubmitError(null);
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/enquiries`, {
+      const res = await fetch("/api/enquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -101,9 +107,10 @@ export default function ContactForm() {
       if (!res.ok) throw new Error("request_failed");
 
       trackEvent("contact_submit", { plan: form.plan, city: form.city || undefined });
+      setForm(initialState);
       setSubmitted(true);
     } catch {
-      setSubmitError("Something went wrong. Please try again or contact us directly.");
+      setSubmitError("Something went wrong while submitting your enquiry. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -117,8 +124,7 @@ export default function ContactForm() {
         </span>
         <h3 className="font-display text-2xl font-medium">Enquiry received.</h3>
         <p className="max-w-sm text-sm leading-relaxed text-muted">
-          Thanks, {form.fullName.split(" ")[0] || "there"}. The Friction Charge team will reach out to discuss the
-          model and answer your questions.
+          Thank you. Your enquiry has been submitted successfully. Our team will contact you shortly.
         </p>
       </div>
     );
@@ -135,6 +141,20 @@ export default function ContactForm() {
         className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-20 blur-[100px]"
         style={{ background: "radial-gradient(circle, #45f58c, transparent 70%)" }}
       />
+
+      {/* Honeypot field — invisible to real users, off-screen and unreachable by keyboard/screen reader. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
+      </div>
 
       <div className="relative mb-8 flex items-start gap-4 border-b border-card-border pb-6">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-bright-green/10 text-bright-green">
