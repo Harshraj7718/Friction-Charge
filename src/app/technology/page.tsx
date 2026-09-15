@@ -30,7 +30,7 @@ export default function TechnologyPage() {
         eyebrow="Technology"
         title="Software-run stations. Hardware-grade reliability."
         description="Every charger connects to a centralized platform that keeps the network monitored, billed and maintained."
-        visual={{ src: "/images/mobile-app.png", alt: "Friction Charge app showing the splash screen and a station map" }}
+        visual={{ src: "/images/mobile-app.webp", alt: "Friction Charge app showing the splash screen and a station map" }}
       />
 
       <RevealSection className="py-12 sm:py-16">
@@ -51,7 +51,7 @@ export default function TechnologyPage() {
 
           <div data-image-reveal className="technical-border overflow-hidden rounded-3xl">
             <Image
-              src="/images/software.png"
+              src="/images/software.webp"
               alt="Friction Charge charging management platform showing network overview, live station map, and uptime dashboard"
               width={1254}
               height={1254}
@@ -71,7 +71,7 @@ export default function TechnologyPage() {
           />
           <div data-image-reveal className="technical-border mt-14 overflow-hidden rounded-3xl">
             <Image
-              src="/images/tech-workflow.png"
+              src="/images/tech-workflow.webp"
               alt="Friction Charge platform workflow — customer app and no-app charging flows, station operator flow, central management flow, and cash payment flow"
               width={1254}
               height={1254}
@@ -86,7 +86,7 @@ export default function TechnologyPage() {
         <Container className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div className="order-2 lg:order-1" data-image-reveal>
             <Image
-              src="/images/mobile-app.png"
+              src="/images/mobile-app.webp"
               alt="Friction Charge app showing the splash screen and a station map with nearby chargers, plus payment, tracking and smart-charging features"
               width={1774}
               height={887}

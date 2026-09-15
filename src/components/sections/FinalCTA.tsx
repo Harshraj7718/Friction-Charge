@@ -15,7 +15,7 @@ export default function FinalCTA() {
 
   return (
     <section ref={scopeRef} className="relative overflow-hidden py-28 sm:py-36">
-      <Image src="/images/future.png" alt="" fill sizes="100vw" className="object-cover" />
+      <Image src="/images/future.webp" alt="" fill sizes="100vw" className="object-cover" />
       <div aria-hidden className="absolute inset-0 bg-bg/85" />
       <div
         aria-hidden

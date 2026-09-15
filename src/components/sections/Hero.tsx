@@ -22,7 +22,6 @@ export default function Hero() {
   const scrollHintRef = useRef<HTMLDivElement>(null);
   const floatRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
   const dot1Ref = useRef<HTMLSpanElement>(null);
   const dot2Ref = useRef<HTMLSpanElement>(null);
 
@@ -40,7 +39,6 @@ export default function Hero() {
     playHeroVisualFX({
       float: floatRef.current,
       glow: glowRef.current,
-      ring: ringRef.current,
       dots: [dot1Ref.current, dot2Ref.current].filter((el): el is HTMLSpanElement => el !== null),
     });
   }, []);
@@ -56,12 +54,12 @@ export default function Hero() {
           style={{ background: "radial-gradient(circle, #45f58c, transparent 70%)" }}
         />
         <Image
-          src="/images/logo-icon.png"
+          src="/images/logo-icon.webp"
           alt=""
           width={908}
           height={589}
           sizes="(min-width: 640px) 80vw, 140vw"
-          className="absolute left-1/2 top-1/2 w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.10] sm:w-[80%]"
+          className="absolute left-1/2 top-1/2 w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.06] sm:w-[80%]"
         />
       </div>
 
@@ -114,12 +112,6 @@ export default function Hero() {
             style={{ background: "radial-gradient(circle, #45f58c, transparent 70%)" }}
           />
 
-          <div
-            ref={ringRef}
-            aria-hidden
-            className="absolute left-1/2 top-1/2 h-[85%] w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-bright-green/25"
-          />
-
           <span
             ref={dot1Ref}
             aria-hidden
@@ -135,8 +127,8 @@ export default function Hero() {
 
           <div ref={floatRef} className="absolute inset-0">
             <Image
-              src="/images/ev-charger.png"
-              alt="Friction Charge DC fast chargers — 60 kW and 120 kW models"
+              src="/images/main.webp"
+              alt="An EV charging at a Friction Charge DC fast-charging station"
               fill
               className="object-contain"
               sizes="(min-width: 1024px) 620px, 100vw"

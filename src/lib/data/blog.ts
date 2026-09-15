@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min read",
     dateLabel: "Media Center",
     coverGradient: "linear-gradient(135deg, #0c1822, #1e9e4a)",
-    coverImage: "/images/ev-boom.png",
+    coverImage: "/images/ev-boom.webp",
     content: [
       {
         heading: "The gap between vehicles and infrastructure",
@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "4 min read",
     dateLabel: "Media Center",
     coverGradient: "linear-gradient(135deg, #0c1822, #2ebd59)",
-    coverImage: "/images/fc-60-vs-fc-120.png",
+    coverImage: "/images/fc-60-vs-fc-120.webp",
     content: [
       {
         heading: "Two entry points into charging infrastructure",
@@ -82,7 +82,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "6 min read",
     dateLabel: "Media Center",
     coverGradient: "linear-gradient(135deg, #0c1822, #22303f)",
-    coverImage: "/images/charge-station.png",
+    coverImage: "/images/charge-station.webp",
     content: [
       {
         heading: "Software-run stations",

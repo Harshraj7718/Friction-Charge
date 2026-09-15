@@ -25,7 +25,7 @@ export default function NetworkStats() {
     <section ref={scopeRef} className="relative overflow-hidden border-y border-card-border bg-bg-elevated py-16 sm:py-20">
       <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <Image
-          src="/images/network-watermark.png"
+          src="/images/network-watermark.webp"
           alt=""
           width={900}
           height={900}

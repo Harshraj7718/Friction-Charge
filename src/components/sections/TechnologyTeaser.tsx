@@ -42,7 +42,7 @@ export default function TechnologyTeaser() {
           className="technical-border overflow-hidden rounded-3xl"
         >
           <Image
-            src="/images/software.png"
+            src="/images/software.webp"
             alt="Friction Charge charging management platform showing network overview, live station map, and uptime dashboard"
             width={1254}
             height={1254}

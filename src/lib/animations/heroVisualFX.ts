@@ -5,7 +5,6 @@ import { gsap, prefersReducedMotion } from "./gsap";
 type HeroVisualFXTargets = {
   float: HTMLElement | null;
   glow: HTMLElement | null;
-  ring: HTMLElement | null;
   dots: HTMLElement[];
 };
 
@@ -16,11 +15,11 @@ type HeroVisualFXTargets = {
  * timeline (see Hero.tsx), so its infinite tweens still get killed on
  * unmount without any manual cleanup here.
  */
-export function playHeroVisualFX({ float, glow, ring, dots }: HeroVisualFXTargets) {
+export function playHeroVisualFX({ float, glow, dots }: HeroVisualFXTargets) {
   if (prefersReducedMotion()) {
     // Static resting state: visible, no motion, rather than skipped
-    // entirely — the glow/ring/dots are decorative but shouldn't just vanish.
-    gsap.set([glow, ring, ...dots].filter(Boolean), { autoAlpha: 1 });
+    // entirely — the glow/dots are decorative but shouldn't just vanish.
+    gsap.set([glow, ...dots].filter(Boolean), { autoAlpha: 1 });
     return;
   }
 
@@ -43,16 +42,6 @@ export function playHeroVisualFX({ float, glow, ring, dots }: HeroVisualFXTarget
       ease: "sine.inOut",
       yoyo: true,
       repeat: -1,
-    });
-  }
-
-  if (ring) {
-    gsap.to(ring, {
-      rotate: 360,
-      duration: 26,
-      ease: "none",
-      repeat: -1,
-      transformOrigin: "50% 50%",
     });
   }
 

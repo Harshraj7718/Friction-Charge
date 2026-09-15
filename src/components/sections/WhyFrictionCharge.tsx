@@ -17,19 +17,19 @@ const pillars = [
     icon: Activity,
     title: "Live Monitoring",
     description: "Real-time visibility into charger status and uptime across the network.",
-    image: "/images/live-monitoring.png",
+    image: "/images/live-monitoring.webp",
   },
   {
     icon: Smartphone,
     title: "Smart App",
     description: "Find chargers, track sessions and pay digitally — all from the Friction Charge app.",
-    image: "/images/smart-app.png",
+    image: "/images/smart-app.webp",
   },
   {
     icon: Cloud,
     title: "Charging Management Platform",
     description: "Centralized monitoring, billing and diagnostics for every station on the network.",
-    image: "/images/charging-management-platform.png",
+    image: "/images/charging-management-platform.webp",
   },
 ];
 

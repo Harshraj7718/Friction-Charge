@@ -12,11 +12,11 @@ export const company = {
 } as const;
 
 export const contact = {
-  email: "partners@frictioncharge.in", // placeholder — pending official confirmation
-  phone: "+91 00000 00000", // placeholder — pending official confirmation
-  whatsapp: "+91 00000 00000", // placeholder — pending official confirmation
+  email: "Info@frictioncharge.in",
+  phone: "+91 87964 42624",
+  whatsapp: "+91 87964 42624",
   address: "Noida, Uttar Pradesh, India",
-  isPlaceholder: true,
+  isPlaceholder: false,
 } as const;
 
 export const socialLinks = [
@@ -189,19 +189,19 @@ export const roadmapPhases: RoadmapPhase[] = [
     phase: "PHASE 01",
     title: "Delhi NCR",
     description: "Initial network build-out across Delhi NCR.",
-    image: "/images/dc-fast-charging.png",
+    image: "/images/dc-fast-charging.webp",
   },
   {
     phase: "PHASE 02",
     title: "North India Highway Corridors",
     description: "Extending fast-charging coverage along major North Indian highway corridors.",
-    image: "/images/highway-infrastructure.png",
+    image: "/images/highway-infrastructure.webp",
   },
   {
     phase: "PHASE 03",
     title: "Pan-India",
     description: "Long-term expansion toward a pan-India charging network.",
-    image: "/images/pan-india-expansion.png",
+    image: "/images/pan-india-expansion.webp",
   },
 ];
 
@@ -253,11 +253,11 @@ export const serviceGroups: ServiceGroup[] = [
 ];
 
 export const horizontalBackboneCards = [
-  { number: "01", title: "DC Fast Charging", image: "/images/dc-fast-charging.png" },
-  { number: "02", title: "Charging Hubs", image: "/images/charging-hubs.png" },
-  { number: "03", title: "Highway Infrastructure", image: "/images/highway-infrastructure.png" },
-  { number: "04", title: "Fleet Charging", image: "/images/fleet-charging.png" },
-  { number: "05", title: "Pan-India Expansion", image: "/images/pan-india-expansion.png" },
+  { number: "01", title: "DC Fast Charging", image: "/images/dc-fast-charging.webp" },
+  { number: "02", title: "Charging Hubs", image: "/images/charging-hubs.webp" },
+  { number: "03", title: "Highway Infrastructure", image: "/images/highway-infrastructure.webp" },
+  { number: "04", title: "Fleet Charging", image: "/images/fleet-charging.webp" },
+  { number: "05", title: "Pan-India Expansion", image: "/images/pan-india-expansion.webp" },
 ];
 
 export const values = [
@@ -271,20 +271,20 @@ export const whyChargingStages = [
     number: "01",
     title: "Growing EV adoption",
     description: "More electric vehicles are entering Indian roads every year.",
-    image: "/images/growing-ev-adoption.png",
+    image: "/images/growing-ev-adoption.webp",
   },
   {
     number: "02",
     title: "The charging gap",
     description: "The charging ecosystem needs to scale alongside EV adoption.",
-    image: "/images/the-charging-gap.png",
+    image: "/images/the-charging-gap.webp",
   },
   {
     number: "03",
     title: "The infrastructure opportunity",
     description:
       "Friction Charge is building charging infrastructure where EV drivers, fleets and highway traffic need it.",
-    image: "/images/the-infrastructure-opportunity.png",
+    image: "/images/the-infrastructure-opportunity.webp",
   },
 ];
 

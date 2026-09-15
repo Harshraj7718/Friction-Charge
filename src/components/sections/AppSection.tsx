@@ -56,7 +56,7 @@ export default function AppSection() {
           </p>
           <div data-scale-reveal>
             <Image
-              src="/images/app-mockup.png"
+              src="/images/app-mockup.webp"
               alt="Friction Charge app showing the charging-the-future splash screen and a station map with a nearby station's 60 kW / 120 kW options and Start Charging button"
               width={1774}
               height={887}

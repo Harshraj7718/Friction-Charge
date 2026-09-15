@@ -35,7 +35,7 @@ export default function PageHero({ eyebrow, title, description, children, backgr
       />
       {backgroundLogo && (
         <Image
-          src="/images/logo-icon.png"
+          src="/images/logo-icon.webp"
           alt=""
           width={908}
           height={589}

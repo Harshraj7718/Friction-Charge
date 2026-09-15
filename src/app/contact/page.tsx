@@ -28,7 +28,7 @@ export default function ContactPage() {
         eyebrow="Get in touch"
         title="Let's talk about your charger."
         description="No obligation — talk to our team, understand the model and decide."
-        visual={{ src: "/images/evcontact.png", alt: "An EV charging at a Friction Charge station" }}
+        visual={{ src: "/images/evcontact.webp", alt: "An EV charging at a Friction Charge station" }}
       />
 
       <RevealSection className="py-12 sm:py-20">

@@ -30,7 +30,7 @@ export default function NetworkPage() {
         eyebrow="Our network"
         title="Building India's charging backbone."
         description="A growing network of standalone DC fast chargers and larger charging hubs, positioned for fleets, taxis, highway traffic and everyday drivers."
-        visual={{ src: "/images/india.png", alt: "Map of India with pins marking EV charging activity across states" }}
+        visual={{ src: "/images/india.webp", alt: "Map of India with pins marking EV charging activity across states" }}
       />
 
       <RevealSection className="py-24 sm:py-32">

@@ -15,7 +15,7 @@ export default function Logo({ variant = "icon", className, imgClassName, priori
   return (
     <Link href="/" aria-label="Friction Charge — home" className={cn("inline-flex items-center", className)}>
       <Image
-        src={isIcon ? "/images/logo-icon.png" : "/images/logo.png"}
+        src={isIcon ? "/images/logo-icon.webp" : "/images/logo.webp"}
         alt="Friction Charge"
         width={isIcon ? 908 : 1672}
         height={isIcon ? 589 : 940}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { company, contact, footerNavLinks, legalLinks, socialLinks } from "@/lib/data/company";
@@ -9,6 +10,14 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-card-border bg-bg-elevated">
       <div className="grid-pattern pointer-events-none absolute inset-0 opacity-30" aria-hidden />
+      <Image
+        src="/images/logo-icon.webp"
+        alt=""
+        width={908}
+        height={589}
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.05] sm:w-[70%]"
+      />
       <Container className="relative z-10 py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>

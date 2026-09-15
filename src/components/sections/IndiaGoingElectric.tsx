@@ -50,7 +50,7 @@ export default function IndiaGoingElectric() {
 
         <div data-image-reveal className="order-1 mx-auto w-full max-w-md lg:order-2" data-parallax data-parallax-speed="0.2">
           <Image
-            src="/images/india.png"
+            src="/images/india.webp"
             alt="Map of India with pins marking EV charging activity across states"
             width={1243}
             height={1265}

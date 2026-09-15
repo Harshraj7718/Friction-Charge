@@ -30,7 +30,7 @@ export default function AboutPage() {
         title="Charging the Future."
         description="An EV charging infrastructure company building the network India's electric vehicles need."
         backgroundLogo
-        visual={{ src: "/images/logo.png", alt: "Friction Charge" }}
+        visual={{ src: "/images/logo.webp", alt: "Friction Charge" }}
       />
 
       <RevealSection className="py-24 sm:py-32">
@@ -52,7 +52,7 @@ export default function AboutPage() {
 
           <div data-image-reveal className="technical-border overflow-hidden rounded-3xl">
             <Image
-              src="/images/charge-station.png"
+              src="/images/charge-station.webp"
               alt="A Friction Charge DC fast-charging station"
               width={1672}
               height={941}
