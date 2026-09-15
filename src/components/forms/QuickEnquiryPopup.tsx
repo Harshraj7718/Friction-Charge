@@ -80,7 +80,12 @@ export default function QuickEnquiryPopup() {
   }
 
   return (
-    <div className="fixed bottom-6 left-6 z-30 flex flex-col items-start gap-3">
+    // pointer-events-none on this wrapper, restored per-child below — the
+    // panel keeps its full layout size even while closed (it's animated via
+    // opacity/scale, not unmounted), so without this the wrapper's fixed
+    // box would sit as an invisible click-blocker over whatever page
+    // content happens to be underneath it.
+    <div className="pointer-events-none fixed bottom-6 left-6 z-30 flex flex-col items-start gap-3">
       <div
         role="dialog"
         aria-modal="false"
@@ -88,7 +93,7 @@ export default function QuickEnquiryPopup() {
         aria-hidden={!open}
         className={cn(
           "glass technical-border w-[300px] origin-bottom-left rounded-3xl shadow-xl transition-all duration-300 sm:w-[340px]",
-          open ? "translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-2 scale-95 opacity-0"
+          open ? "pointer-events-auto translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-2 scale-95 opacity-0"
         )}
       >
         {submitted ? (
@@ -210,7 +215,7 @@ export default function QuickEnquiryPopup() {
         onClick={toggle}
         aria-expanded={open}
         aria-label={open ? "Close enquiry form" : "Open quick enquiry form"}
-        className="glass technical-border group flex h-14 items-center overflow-hidden rounded-full shadow-lg transition-shadow duration-300 hover:shadow-[0_0_30px_-6px_rgba(69,245,140,0.4)]"
+        className="glass technical-border group pointer-events-auto flex h-14 items-center overflow-hidden rounded-full shadow-lg transition-shadow duration-300 hover:shadow-[0_0_30px_-6px_rgba(69,245,140,0.4)]"
       >
         <span className="flex h-14 w-14 shrink-0 items-center justify-center text-bright-green">
           {open ? <X size={20} className="text-text" /> : <MessageSquarePlus size={20} />}

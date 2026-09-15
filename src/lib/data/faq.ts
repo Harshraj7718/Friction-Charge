@@ -28,7 +28,7 @@ export const homeFaqs: FaqItem[] = [
   {
     question: "What's the difference between FC-60 and FC-120?",
     answer:
-      "FC-60 is a 60 kW DC fast charger: ₹13,00,000 one-time, with a fixed monthly payout of ₹45,000. FC-120 is our flagship 120 kW DC fast charger: ₹22,00,000 one-time, with a fixed monthly payout of ₹85,000.",
+      "FC-60 is a 60 kW DC fast charger: ₹15,00,000 one-time, with a fixed monthly payout of ₹43,000. FC-120 is our flagship 120 kW DC fast charger: ₹26,00,000 one-time, with a fixed monthly payout of ₹75,000.",
   },
   {
     question: "What's included in a partner plan?",

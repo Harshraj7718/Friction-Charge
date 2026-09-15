@@ -67,6 +67,13 @@ export default function TextPressure({ text, className, strength = 0.22, radius 
     if (prefersReducedMotion()) return;
 
     const onPointerMove = (e: PointerEvent) => {
+      // Touch-scroll gestures dispatch pointermove too (pointerType
+      // "touch"), and this is a hover effect that means nothing on touch
+      // anyway — without this guard, every scroll frame on mobile was
+      // paying for a getBoundingClientRect() (forced layout) per character,
+      // fighting the scroll for main-thread time on every device, not just
+      // ones actually hovering this component.
+      if (e.pointerType !== "mouse") return;
       if (scheduledRef.current) return;
       scheduledRef.current = true;
       const { clientX, clientY } = e;

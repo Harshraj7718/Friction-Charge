@@ -60,8 +60,8 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Two entry points into charging infrastructure",
         body: [
-          "FC-60 is a 60 kW DC fast charger — the entry point to owning EV charging infrastructure, with a one-time amount of ₹13,00,000 and a fixed monthly payout of ₹45,000 (₹5,40,000 annually).",
-          "FC-120 is a 120 kW DC fast charger — double the charging power, with a one-time amount of ₹22,00,000 and a fixed monthly payout of ₹85,000 (₹10,20,000 annually).",
+          "FC-60 is a 60 kW DC fast charger — the entry point to owning EV charging infrastructure, with a one-time amount of ₹15,00,000 and a fixed monthly payout of ₹43,000 (₹5,16,000 annually).",
+          "FC-120 is a 120 kW DC fast charger — double the charging power, with a one-time amount of ₹26,00,000 and a fixed monthly payout of ₹75,000 (₹9,00,000 annually).",
         ],
       },
       {
