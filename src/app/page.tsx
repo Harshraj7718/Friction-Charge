@@ -16,6 +16,7 @@ import MediaTeaser from "@/components/sections/MediaTeaser";
 import MissionVision from "@/components/sections/MissionVision";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
+import QuickEnquiryPopup from "@/components/forms/QuickEnquiryPopup";
 import { homeFaqs } from "@/lib/data/faq";
 
 export default function HomePage() {
@@ -39,6 +40,7 @@ export default function HomePage() {
       <MissionVision />
       <FAQ items={homeFaqs} />
       <FinalCTA />
+      <QuickEnquiryPopup />
     </>
   );
 }

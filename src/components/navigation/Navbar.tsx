@@ -119,7 +119,16 @@ export default function Navbar() {
               center regardless of how lopsided the two sides' content is.
             */}
             <div className="relative grid h-full grid-cols-[1fr_auto_1fr] items-end gap-4 px-4 pb-2 md:px-6">
-              <div className="flex min-w-0 items-center gap-5">
+              {/*
+                justify-end below xl, justify-start (the default) at xl+:
+                the mobile hamburger is much narrower than the desktop nav
+                row, so aligning both to the *same* edge left a bigger gap
+                next to the logo on mobile than the (wider) theme-toggle
+                side below produced — this pins the mobile control flush
+                against the logo instead, and reverts to hugging the outer
+                corner once the full nav row appears.
+              */}
+              <div className="flex min-w-0 items-center justify-end gap-5 xl:justify-start">
                 <nav aria-label="Primary" className="hidden gap-5 xl:flex">
                   {LEFT_LINKS.map((link) => (
                     <NavLink key={link.href} href={link.href} label={link.label} active={pathname === link.href} />
@@ -142,14 +151,22 @@ export default function Navbar() {
                 <Logo priority imgClassName="h-7 w-auto" />
               </div>
 
-              <div className="flex min-w-0 items-center justify-end gap-4">
-                <nav aria-label="Secondary" className="hidden items-center gap-4 xl:flex">
+              {/*
+                Mirrors the left column: justify-start below xl pins the
+                mobile theme toggle flush against the logo (matching the
+                hamburger on the other side) instead of out at the right
+                corner, where its wider pill would leave a smaller gap next
+                to the logo than the narrower hamburger did on the left.
+              */}
+              <div className="flex min-w-0 items-center justify-start gap-5 xl:justify-end">
+                {/* One flex row, one gap value, for every item on this side
+                    — links, theme toggle, and CTA all sit the same distance
+                    apart instead of the nav links and the utility cluster
+                    keeping their own separate rhythm. */}
+                <nav aria-label="Secondary" className="hidden items-center gap-5 xl:flex">
                   {RIGHT_LINKS.map((link) => (
                     <NavLink key={link.href} href={link.href} label={link.label} active={pathname === link.href} />
                   ))}
-                </nav>
-
-                <div className="hidden shrink-0 items-center gap-3 border-l border-card-border pl-4 xl:flex">
                   <ThemeToggle />
                   <CTAButton
                     href="/franchise"
@@ -160,7 +177,7 @@ export default function Navbar() {
                   >
                     Become a Partner
                   </CTAButton>
-                </div>
+                </nav>
 
                 <div className="flex shrink-0 items-center xl:hidden">
                   <ThemeToggle />
